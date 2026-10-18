@@ -1,0 +1,478 @@
+/* Сброс базовых отступов и настройка размеров */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #242e38;
+    color: #333;
+    /* Отступ сверху равен высоте шапки, чтобы контент не перекрывался */
+    padding-top: 60px;
+    padding-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Зафиксированная шапка */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #7c96af;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.header-btn {
+    
+    background-color: #a3dba2;
+    width: 140px;
+    height: 60px;
+    color: white;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 1.45rem;
+    font-weight: bold;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Главный контейнер */
+main {
+    padding: 20px;
+    max-width: 1200px; /* Ограничение ширины для мобильного экрана */
+    margin: 0 auto;
+    background-color: #697f94;
+}
+
+/* Карточки с контентом */
+.card {
+    background-color: #465563;
+    margin: 0 auto;
+    border-radius: 12px;
+    /* max-width: 600px; */
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+/* Кнопка действия */
+.cta-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #3498db;
+    color: white;
+    padding: 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+    padding: 28px 8px;
+    margin-bottom: 10px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+
+.preview {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: 500;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.about {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    line-height: 40px;
+    background-color: #8ca8c2;
+    border-radius: 20px 20px 0px 0px;
+    margin-bottom: 10px;
+    padding: 20px;
+    padding-bottom: 15px;
+}
+.Nizhe {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: 500;
+    background-color: #8ca8c2;
+    border-radius: 0px 0px 20px 20px;
+    margin-bottom: 20px;
+    
+}
+
+.uslugi {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: #8ca8c2;
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+li {
+    list-style: none;
+    line-height: 40px;
+
+}
+
+/* Сетка для галереи */
+.photo-gallery {
+    background-color: #95b1cc;
+    display: grid;
+    /* Разделение на 2 равные колонки */
+    grid-template-columns: repeat(4, 1fr); 
+    /* Расстояние между карточками фотографий */
+    gap: 10px; 
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Контейнер для каждого фото */
+.photo-item {
+    width: 100%;
+    /* Фиксированное соотношение сторон 1:1 (квадрат) */
+    aspect-ratio: 1 / 1; 
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #95b1cc;
+}
+
+/* Настройки изображения внутри карточки */
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    /* Картинка заполняет область без искажения пропорций */
+    object-fit: cover; 
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Эффект легкого увеличения при нажатии или наведении */
+.photo-item img:active {
+    transform: scale(1.5);
+}
+
+.contacts {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: #8ca8c2;
+    color: white;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.social {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: #8ca8c2;
+    color: white;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+}
+
+.TikTok {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 10px;
+    padding: 5px;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.header-btn1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    width: 140px;
+    height: 60px;
+    color: white;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 1.45rem;
+    text-align: center;
+    font-weight: bold;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.header-btn2 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    width: 140px;
+    height: 60px;
+    color: white;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 1.45rem;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.header-btn3 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    width: 140px;
+    height: 60px;
+    color: white;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 1.45rem;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (max-width: 800px) {
+    .header-btn1 {
+        display: none;
+    }
+    .header-btn2 {
+        display: none;
+    }
+    .header-btn3 {
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    .photo-gallery {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+.TikTok:hover {
+    color: #37424e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.header-btn1:hover {
+    color: #37424e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.header-btn2:hover {
+    color: #37424e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.header-btn3:hover {
+    color: #37424e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.header-btn:hover {
+    color: #374e39;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.TikTok:active {
+    color: #8fa9c5;
+    background-color: #283038;
+    transform: translateY(1px) scale(0.98);/* Кнопка проседает и слегка сжимается */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.header-btn1:active {
+    color: #8fa9c5;
+    background-color: #283038;
+    transform: translateY(1px) scale(0.98);/* Кнопка проседает и слегка сжимается */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+.header-btn2:active {
+    color: #8fa9c5;
+    background-color: #283038;
+    transform: translateY(1px) scale(0.98);/* Кнопка проседает и слегка сжимается */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+.header-btn3:active {
+    color: #8fa9c5;
+    background-color: #283038;
+    transform: translateY(1px) scale(0.98);/* Кнопка проседает и слегка сжимается */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.header-btn:active {
+    color: #9cd1a1;
+    background-color: #223023;
+    transform: translateY(1px) scale(0.98);/* Кнопка проседает и слегка сжимается */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+    
+    /* Скрываем элемент */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Картинка внутри полноэкранного просмотра */
+.lightbox img {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    z-index: 2002;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Кнопка закрытия (Крестик) */
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #ffffff;
+    font-size: 36px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 2003;
+    line-height: 1;
+}
+
+/* Кликая по фону вокруг картинки, тоже закрываем фото */
+.lightbox-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2001;
+}
+
+/* МАГИЯ CSS: Магия :target показывает окно при клике */
+.lightbox:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.human {
+    width: 200px;
+    height: auto;
+    border-radius: 30px;
+    margin-right: 20px;
+}
+
+.product-info {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.Main-product {
+    background-color: #8ca8c2;
+    margin: 10px auto;
+    padding: 20px;
+    text-decoration: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.product-card {
+    display: flex; 
+    flex-direction: row;
+    text-decoration: none;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.product-button {
+    text-decoration: none;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 30px;
+    /* margin: 15px; */
+    padding: 8px;
+    border-radius: 20px;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-button:hover {
+    color: #37424e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.product-button:active {
+    color: #8fa9c5;
+    background-color: #283038;
+    transform: translateY(1px) scale(0.98);/* Кнопка проседает и слегка сжимается */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 800px) {
+    .product-card {
+        display: block;
+    }
+}
